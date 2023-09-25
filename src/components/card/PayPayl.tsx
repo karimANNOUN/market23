@@ -2,11 +2,14 @@
 import {  PayPalButtons } from "@paypal/react-paypal-js";
 import { useSelector } from "react-redux";
 import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
+
 export const PayPayl = () => {
 
     const store = useSelector((state:any)=> state.app.store)
     const total = useSelector((state:any)=> state.app.total)
     const Token=Cookies.get('token')
+   const navigate=useNavigate()
 
     const createOrder = (data:any) => {
         // Order is created on the server and the order id is returned
@@ -14,6 +17,7 @@ export const PayPayl = () => {
           method: "POST",
            headers: {
             "Content-Type": "application/json",
+            authorization:`${Token}`
           },
           // use the "body" param to optionally pass additional order information
           // like product skus and quantities
@@ -22,9 +26,9 @@ export const PayPayl = () => {
         .then((response) => response.json())
         .then((order) => order.id);
       };
-      const onApprove =  (data:any) => {
+      const onApprove = async (data:any) => {
          // Order is captured on the server and the response is returned to the browser
-         return fetch(`${process.env.REACT_APP_HOST}/my-server/capture-paypal-order`, {
+         const response = await fetch(`${process.env.REACT_APP_HOST}/my-server/capture-paypal-order`, {
           method: "POST",
            headers: {
             "Content-Type": "application/json",
@@ -34,7 +38,12 @@ export const PayPayl = () => {
             orderID: data.orderID
           })
         })
-        .then( async (  response) =>  console.log( await response.json()));
+      
+// eslint-disable-next-line
+        const datas= await response.json()
+       
+       navigate('/dashboard')
+       
       };
  
     

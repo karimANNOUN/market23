@@ -82,7 +82,7 @@ useEffect(()=>{
 
 
   return (
-    <Cart sx={{ width: 320, maxWidth: '100%', boxShadow: 'lg',my:2,mx:1,bgcolor:'whitesmoke' }}>
+    <Cart sx={{ width: 320, maxWidth: '100%',height:400, boxShadow: 'lg',my:2,mx:1,bgcolor:'whitesmoke' }}>
       <CardOverflow>
         <AspectRatio sx={{ minWidth: 200 }}>
           <img

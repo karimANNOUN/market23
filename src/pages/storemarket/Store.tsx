@@ -43,7 +43,7 @@ export const Store = () => {
       },[])
 
       const store = useSelector((state:any)=> state.app.store)
-    
+    console.log(store)
       
 
       const totalPrice = store.reduce((accumulator:any, product:any) => {
@@ -79,7 +79,7 @@ export const Store = () => {
 
     <Box sx={{width:'39%',mt:2}} >
     <PayPalScriptProvider options={initialOptions} >
-    { store.length ?  <PayPayl  /> : ""}
+    { store.find((str:any)=>str.product.quantity === 0 ) ? "" : (store.length ?  <PayPayl  /> : "")}
     </PayPalScriptProvider>
     </Box>
 
