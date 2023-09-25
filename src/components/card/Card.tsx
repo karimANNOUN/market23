@@ -19,7 +19,6 @@ import { UpdatedeProduct } from '../../pages/updateproduct/UpdatedeProduct';
 export const Card = ({prod}:any ) => {
 
   const dispatch=useDispatch()
-
   const Token=Cookies.get('token')
 
   const store = useSelector((state:any)=> state.app.store)
