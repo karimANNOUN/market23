@@ -56,7 +56,7 @@ export const Store = () => {
 
       
       const initialOptions = {
-        clientId: `${process.env.PAYPAL_CLIENT_ID}`,
+        clientId:`Ad-Y6b0hsigUuohl-t0oFegFbeslLkprZ3HAGBrf_FZfsjCjEkNPqpSDUrR-WXVxZDyrWlvCd55nSvtH`,
         currency: "USD",
         intent: "capture",
     };
