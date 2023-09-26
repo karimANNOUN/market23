@@ -43,7 +43,7 @@ export const Store = () => {
       },[])
 
       const store = useSelector((state:any)=> state.app.store)
-    console.log(store)
+   
       
 
       const totalPrice = store.reduce((accumulator:any, product:any) => {
